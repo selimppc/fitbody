@@ -1,0 +1,2 @@
+Перейдите по ссылке для подтверждения регистрации <br/>
+<a href="<?php echo Yii::app()->getBaseUrl(true);  ?>/confirmation/<?php echo $hash; ?>.html" class="logo"><?php echo Yii::app()->getBaseUrl(true);  ?></a>

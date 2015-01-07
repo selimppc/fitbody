@@ -1,0 +1,25 @@
+input[type=text], input[type=email], input[type=password]{padding: 7px 10px 0!important;vertical-align: middle;}
+
+.search_box input[type=text] { background: #6486bc;color: #fff;}
+.banner_main_info {background: #fff;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"}
+#clubs_inner_sync2{background: #fff;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"!important;}
+#clubs_inner_sync2 .item {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"!important;
+}
+#clubs_inner_sync2 .synced .item {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"!important;
+}
+.register_block .row_inline{margin: 0 22px 30px 0;}
+.search_box input[type=text]:-ms-clear {
+	display: none;
+}
+.upload_link input[type=file] {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+.goal_nav ul li a img{-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";}
+
+.goal_tab .row_inline label:first-child{margin:0;}
+.goal_tab .row_inline label{margin: 0 0 0 -25px;}
+#body_volume.goal_tab .row_inline label:first-child{margin: 0;}
+#body_volume.goal_tab .row_inline label{margin: 0 0 0 -35px;}
+.add_photo a input {-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";}

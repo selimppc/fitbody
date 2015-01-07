@@ -1,0 +1,353 @@
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.3.3
+*/
+.disabled{opacity: 0.5!important;}
+.disabled:after{background-color: rgba(255,255,255,0.8)!important;}
+.owl-controls .owl-buttons div.disabled:hover{cursor: default;}
+
+.owl-theme .owl-controls{
+	margin-top: 10px;
+	text-align: center;
+}
+/* Styling Next and Prev buttons */
+.owl-theme .owl-controls .owl-buttons div{
+	color: #FFF;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+	margin: 5px;
+	padding: 3px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	background: #869791;
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	opacity: 0.5;
+}
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+	text-decoration: none;
+}
+/* Styling Pagination*/
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 12px;
+	height: 12px;
+	margin: 5px 7px;
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	opacity: 0.5;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background: #869791;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+}
+/* If PaginationNumbers is true */
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+	height: auto;
+	width: auto;
+	color: #FFF;
+	padding: 2px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+/* preloading images */
+.owl-item.loading{
+	min-height: 150px;
+	background: url(AjaxLoader.gif) no-repeat center center
+}
+
+/*----------------Index_Main_owl---------------*/
+.index_main_owl .owl-controls{}
+/* Styling Next and Prev buttons */
+.index_main_owl .owl-controls .owl-buttons div{
+	position: absolute;
+	top: 0;
+	height: 130px;
+	display: inline-block;
+	text-indent: -9999px;
+	z-index: 9;
+	width: 40px;
+	filter: Alpha(Opacity=20);/*IE7 fix*/
+	opacity: 0.20;
+}
+.index_main_owl .owl-controls .owl-buttons div:before{
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 50%;
+	margin: -17px 0 0 -6px;
+	width: 12px;
+	height: 35px;
+	background-image: url("main_index_slider_arrow.png");
+	background-repeat: no-repeat;
+}
+.index_main_owl .owl-controls .owl-buttons div.owl-prev{left: -40px;}
+.index_main_owl .owl-controls .owl-buttons div.owl-next{right: -40px;}
+
+.index_main_owl .owl-controls .owl-buttons div.owl-prev:before{background-position: 0 0;}
+.index_main_owl .owl-controls .owl-buttons div.owl-next:before{background-position: 0 -50px;}
+
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.index_main_owl .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=75);/*IE7 fix*/
+	opacity: 0.75;
+	text-decoration: none;
+}
+
+#sync1 {margin: 0 0 13px;}
+#sync1 .item{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	line-height: 21px;
+	padding: 0 30px 0 0;
+	max-height: 313px;
+}
+#sync2 .item{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+	opacity: 0.6;
+}
+#sync2 .item:hover{opacity: .8;}
+#sync2 .item img{border: 2px solid transparent;border-radius: 3px;}
+#sync2 .synced .item{opacity: 1;}
+#sync2 .synced .item img{border-color: #fca630;}
+
+
+/*----------------Aside_owl---------------*/
+.aside_owl .owl-controls{}
+/* Styling Next and Prev buttons */
+.aside_owl .owl-controls .owl-buttons div{
+	position: absolute;
+	top: 0;
+	height: 160px;
+	display: inline-block;
+	text-indent: -9999px;
+	z-index: 9;
+	width: 30px;
+}
+.aside_owl .owl-controls .owl-buttons div.owl-prev{left: 0;}
+.aside_owl .owl-controls .owl-buttons div.owl-next{right: 0;}
+.aside_owl .owl-controls .owl-buttons div:after{
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 0;
+	margin: -22px 0 0;
+	width: 30px;
+	height: 45px;
+	background-color: rgba(255,255,255,0.8);
+	background-image: url("aside_slider_arrow.png");
+	background-repeat: no-repeat;
+}
+.aside_owl .owl-controls .owl-buttons div.owl-prev:after{background-position: -50% 10px;}
+.aside_owl .owl-controls .owl-buttons div.owl-next:after{background-position: -50% -40px;}
+
+.aside_owl .owl-controls.clickable .owl-buttons div:hover:after{
+	background-color: rgba(255,255,255,1);
+}
+
+/*----------------Clubs_inner_owl---------------*/
+.clubs_inner_owl .owl-controls{}
+/* Styling Next and Prev buttons */
+.clubs_inner_owl .owl-controls .owl-buttons div{
+	position: absolute;
+	top: 0;
+	height: 64px;
+	display: inline-block;
+	text-indent: -9999px;
+	z-index: 9;
+	width: 40px;
+	filter: Alpha(Opacity=20);/*IE7 fix*/
+	opacity: 0.20;
+}
+.clubs_inner_owl .owl-controls .owl-buttons div:before{
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 50%;
+	margin: -17px 0 0 -6px;
+	width: 12px;
+	height: 35px;
+	background-image: url("main_index_slider_arrow.png");
+	background-repeat: no-repeat;
+}
+.clubs_inner_owl .owl-controls .owl-buttons div.owl-prev{left: -0px;}
+.clubs_inner_owl .owl-controls .owl-buttons div.owl-next{right: -0px;}
+
+.clubs_inner_owl .owl-controls .owl-buttons div.owl-prev:before{background-position: 0 0;}
+.clubs_inner_owl .owl-controls .owl-buttons div.owl-next:before{background-position: 0 -50px;}
+
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.clubs_inner_owl .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=75);/*IE7 fix*/
+	opacity: 0.75;
+	text-decoration: none;
+}
+
+#clubs_inner_sync1 .item{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	max-height: 340px;
+}
+#clubs_inner_sync2{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right:0;
+	height: 64px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 2px 38px;
+	background: rgba(255,255,255,0.4);
+	border-radius: 3px;
+	z-index: 1;
+}
+#clubs_inner_sync2 .item{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+	opacity: 0.6;
+}
+#clubs_inner_sync2 .item img{vertical-align: bottom;}
+#clubs_inner_sync2 .synced .item{opacity: 1;}
+
+/*----------------Trainer_inner_owl---------------*/
+.trainer_owl .owl-controls .owl-buttons div{
+	position: absolute;
+	top: 0;
+	height: 340px;
+	display: inline-block;
+	text-indent: -9999px;
+	z-index: 9;
+	width: 40px;
+}
+.trainer_owl .owl-controls .owl-buttons div.owl-prev{left: 0;}
+.trainer_owl .owl-controls .owl-buttons div.owl-next{right: 0;}
+.trainer_owl .owl-controls .owl-buttons div:after{
+	position: absolute;
+	content: "";
+	top: 50%;
+	left:0;
+	margin: -17px 0 0 0;
+	width: 40px;
+	height: 65px;
+	background-color: #fff;
+	background-image: url("main_index_slider_arrow.png");
+	background-repeat: no-repeat;
+	filter: Alpha(Opacity=80);
+	opacity: 0.8;
+}
+.trainer_owl .owl-controls .owl-buttons div.owl-prev:after{background-position:13px 16px;}
+.trainer_owl .owl-controls .owl-buttons div.owl-next:after{background-position: 16px -36px;}
+.trainer_owl .owl-controls.clickable .owl-buttons div:hover:after{
+	filter: Alpha(Opacity=100);
+	opacity: 1;
+}
+.trainer_owl .disabled{opacity: 0.5!important;}
+.trainer_owl .disabled:after{opacity: 0.5!important;}
+
+/*----------------Photo_inner_owl---------------*/
+/* Styling Next and Prev buttons */
+#photo_inner_sync1.photo_inner_owl .owl-controls .owl-buttons div{height: 100%;}
+.photo_inner_owl .owl-controls .owl-buttons div{
+	position: absolute;
+	top: 0;
+	height: 104px;
+	display: inline-block;
+	text-indent: -9999px;
+	z-index: 9;
+	width: 40px;
+	background: #fff;
+	filter: Alpha(Opacity=20);/*IE7 fix*/
+	opacity: 0.20;
+}
+.photo_inner_owl .owl-controls .owl-buttons div:before{
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 50%;
+	margin: -17px 0 0 -6px;
+	width: 12px;
+	height: 35px;
+	background-image: url("main_index_slider_arrow.png");
+	background-repeat: no-repeat;
+}
+.photo_inner_owl .owl-controls .owl-buttons div.owl-prev{left: -0px;}
+.photo_inner_owl .owl-controls .owl-buttons div.owl-next{right: -0px;}
+
+.photo_inner_owl .owl-controls .owl-buttons div.owl-prev:before{background-position: 0 0;}
+.photo_inner_owl .owl-controls .owl-buttons div.owl-next:before{background-position: 0 -50px;}
+
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.photo_inner_owl .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=75);/*IE7 fix*/
+	opacity: 0.75;
+	text-decoration: none;
+}
+
+#photo_inner_sync1 .item{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	max-height: 470px;
+	text-align: center;
+}
+#photo_inner_sync1 .item .img_cont{
+	position: relative;
+}
+#photo_inner_sync1 .item .img_cont:after{
+	position: relative;
+	content: "";
+	height: 470px;
+	width: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+#photo_inner_sync1 .item .img_cont img{
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 99%;
+	text-decoration: none;
+}
+#photo_inner_sync2{
+	height: 106px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 2px 0;
+	border-radius: 3px;
+	z-index: 1;
+}
+#photo_inner_sync2 .item{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+	/*opacity: 0.6;*/
+}
+#photo_inner_sync2 .item img{vertical-align: bottom;}

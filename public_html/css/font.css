@@ -1,0 +1,70 @@
+@font-face {
+	font-family: 'PT_Sans';
+	src: url('../fonts/ptsans_regular-webfont.eot');
+	src: url('../fonts/ptsans_regular-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/ptsans_regular-webfont.woff') format('woff'),
+	url('../fonts/ptsans_regular-webfont.ttf') format('truetype'),
+	url('../fonts/ptsans_regular-webfont.svg#pt_sansregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: 'PT_Sans';
+		src: url('../fonts/ptsans_regular-webfont.svg') format('svg');
+	}
+}
+
+@font-face {
+	font-family: 'PT_Sans';
+	src: url('../fonts/ptsans_bold-webfont.eot');
+	src: url('../fonts/ptsans_bold-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/ptsans_bold-webfont.woff') format('woff'),
+	url('../fonts/ptsans_bold-webfont.ttf') format('truetype'),
+	url('../fonts/ptsans_bold-webfont.svg#pt_sansbold') format('svg');
+	font-weight: 600;
+	font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: 'PT_Sans';
+		src: url('../fonts/ptsans_bold-webfont.svg') format('svg');
+		font-weight: 600;
+	}
+}
+
+@font-face {
+	font-family: 'Exo_2_Medium';
+	src: url('../fonts/exo2.0-medium-webfont.eot');
+	src: url('../fonts/exo2.0-medium-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/exo2.0-medium-webfont.woff') format('woff'),
+	url('../fonts/exo2.0-medium-webfont.ttf') format('truetype'),
+	url('../fonts/exo2.0-medium-webfont.svg#exo_2.0medium') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: 'Exo_2_Medium';
+		src: url('../fonts/exo2.0-medium-webfont.svg') format('svg');
+		font-weight: 600;
+	}
+}
+
+@font-face {
+	font-family: 'Exo_2_Semibold';
+	src: url('../fonts/exo2.0-semibold-webfont.eot');
+	src: url('../fonts/exo2.0-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/exo2.0-semibold-webfont.woff') format('woff'),
+	url('../fonts/exo2.0-semibold-webfont.ttf') format('truetype'),
+	url('../fonts/exo2.0-semibold-webfont.svg#exo_2.0semi_bold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: 'Exo_2_Semibold';
+		src: url('../fonts/exo2.0-semibold-webfont.svg') format('svg');
+	}
+}
+

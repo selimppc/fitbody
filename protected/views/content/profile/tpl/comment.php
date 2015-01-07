@@ -1,0 +1,1 @@
+<?php $this->widget('application.widgets.CommentsWidget', array('itemId' => $image_id, 'modelName' => 'PhotoComment')); ?>

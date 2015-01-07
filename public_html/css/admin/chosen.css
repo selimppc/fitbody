@@ -1,0 +1,30 @@
+.chosen-container-multi .chosen-choices li.search-choice {
+    background-image: none;
+    background-color: white;
+    line-height: 18px;
+    border: 1px solid #CCCCCC;
+}
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+    top: 7px;
+}
+.chosen-container-multi .chosen-choices {
+    border-radius: 4px;
+    border: 1px solid #CCCCCC;
+    background-image: none;
+}
+
+.chosen-container-single .chosen-single {
+    background: white;
+    padding: 2px 0 4px 8px;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+
+.chosen-container-single .chosen-single abbr {
+    top: 9px;
+}
+
+.chosen-container-single .chosen-single div {
+    top: 3px;
+}

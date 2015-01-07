@@ -1,0 +1,97 @@
+div.vote-wrap{
+    overflow: hidden;
+}
+div.vote-block{
+	position: relative;	
+}
+div.vote-hover{
+    float: left;
+    cursor:  pointer;
+}
+div.vote-stars{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+div.vote-active{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+div.vote-result{
+    color: #cbcbcb;
+    font-size: 12px;
+    margin-top: 0px;
+    padding-left: 0px;
+}
+div.vote-success{
+	display: none;
+    clear: both;
+    color: #ccc;
+    font-size: 14px;
+}
+/*sm*/
+.rating_sm div.vote-result{
+	padding: 0;
+	height: 12px;
+	margin: 10px 4px 0 0;
+	line-height: 12px;
+	display: inline-block;
+	float: left;
+	font: 11px 'PT_Sans', sans-serif;
+}
+.rating_sm div.vote-hover {
+	display: inline-block;
+	vertical-align: middle;
+	height: 28px;
+	line-height: 28px;
+	float: none;
+}
+.rating_sm div.vote-wrap{
+	height: 28px;
+	line-height: 28px;
+}
+.rating_sm div.vote-wrap:before{
+	position: relative;
+	content: "";
+	height: 100%;
+	width: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+.comment .rating_sm div.vote-result {
+	display: none;
+}
+/*lg*/
+.rating_lg div.vote-result{
+	padding: 0 6px;
+}
+.rating_lg div.vote-hover {
+	display: inline-block;
+	vertical-align: middle;
+	height: 35px;
+	line-height: 35px;
+	float: none;
+}
+.rating_lg div.vote-wrap{
+	/*height: 35px;*/
+	line-height: 35px;
+}
+.rating_lg div.vote-wrap:before{
+	position: relative;
+	content: "";
+	height: 35px;
+	width: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+.rating_lg div.vote-success{
+	position: absolute;
+	clear: both;
+	color: #ccc;
+	font-size: 12px;
+	display: block;
+	left: 105%;
+	top: 0;
+	width: 100px;
+}
