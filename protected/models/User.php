@@ -128,7 +128,7 @@ class User extends CActiveRecord {
 
             //forgot password
             array('email', 'email', 'allowEmpty' => false, 'on' => 'forgotPassword'),
-            array('email', 'exist', 'on' => 'forgotPassword', 'criteria' => array('condition' => 'status = :status', 'params' => array(':status' => User::STATUS_ACTIVE)))
+            //array('email', 'exist', 'on' => 'forgotPassword', 'criteria' => array('condition' => 'status = :status', 'params' => array(':status' => User::STATUS_ACTIVE)))
 
 		);
 	}

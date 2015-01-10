@@ -119,97 +119,96 @@ class ApiController extends Controller{
     public function actionClientRegistration($fname, $lname, $email, $username, $password, $dob, $gender, $country_id, $city, $type, $facebook_id){
 
         $model = new User();
+            if($type == "normal"){
 
-        if($type == "normal"){
+                $result = $this->actionCheckEmailNickname($email, $username);
+                if($result == 1){
+                    $data = User::model()->findByAttributes(array('email' => $email));
+                    $user_id = $data->id;
+                    $status = $data->status;
 
-            $result = $this->actionCheckEmailNickname($email, $username);
-            if($result == 1){
-                $data = User::model()->findByAttributes(array('email' => $email));
-                $user_id = $data->id;
-                $status = $data->status;
+                    $data = array('status'=> $status, 'message'=>'Email or Username already exists!', 'user id'=>$user_id );
+                    $this->renderJSON($data);
+                }else{
+                    $model->first_name = $fname;
+                    $model->last_name = $lname;
+                    $model->email = $email;
+                    $model->nickname = $username;
+                    $model->password = $password;
+                    $model->country_id = $country_id;
+                    $model->city = $city;
+                    $model->birthday = $dob;
+                    $model->gender = $gender;
+                    $model->role_id = User::USER_USER;
+                    $model->last_login_date = date('Y-m-d H:i:s');
+                    $model->status = 1;
+                    $model->attachEventHandler('onAfterRegister', array(new RegisterActivity(), 'addActivity'));
+                    $model->attachEventHandler('onAfterRegister', array('EmailNotificationManager', 'sendEmailRegisterUser'));
 
-                $data = array('status'=> $status, 'message'=>'Email or Username already exists!', 'user id'=>$user_id );
+                    if($model->save()) {
+                        $data1 = User::model()->findByAttributes(array('email' => $model->email));
+                        $user_id1 = $data1->id;
+                        $status1 = $data1->status;
+
+                        $data = array('status'=>$status1, 'message'=>'Signup Successful!', 'user id'=>$user_id1 );
+                        $this->renderJSON($data);
+                    }else{
+                        $data = array('status'=>0, 'message'=>'Invalid Request!', 'user id'=>'' );
+                        $this->renderJSON($data);
+                    }
+                }
+
+            }elseif($type == "facebook"){
+
+                $result = $this->actionCheckEmailFb($facebook_id);
+
+                if($result == 1){
+
+                    $results = $this->actionCheckEmails($email);
+                    if($results == 1){
+                        $dataFb = User::model()->findByAttributes(array('email' => $email));
+                        $user_id = $dataFb->id;
+                        $status = $dataFb->status;
+
+                        $data = array('status'=> $status, 'message'=>'Facebook ID already exists!', 'user id'=>$user_id );
+                        $this->renderJSON($data);
+                    }else{
+                        $data = array('status'=> 0, 'message'=>'Email does not exist!', 'user id'=>'' );
+                        $this->renderJSON($data);
+                    }
+
+                }else{
+                    $model->first_name = $fname;
+                    $model->last_name = $lname;
+                    $model->email = $email;
+                    $model->nickname = $email;
+                    $model->password = $password;
+
+                    $model->facebook_id = $facebook_id;
+
+                    $model->role_id = User::USER_USER;
+                    $model->last_login_date = date('Y-m-d H:i:s');
+                    $model->status = 1;
+                    $model->attachEventHandler('onAfterRegister', array(new RegisterActivity(), 'addActivity'));
+                    $model->attachEventHandler('onAfterRegister', array('EmailNotificationManager', 'sendEmailRegisterUser'));
+
+                    if( $model->save() ) {
+                        $data1 = User::model()->findByAttributes(array('email' => $model->email));
+                        $user_id1 = $data1->id;
+                        $status1 = $data1->status;
+
+                        $data = array('status'=>$status1, 'message'=>'Signup Successful!', 'user id'=>$user_id1 );
+                        $this->renderJSON($data);
+                    }else{
+                        $data = array('status'=>0, 'message'=>'Invalid Requests!', 'user id'=>'' );
+                        $this->renderJSON($data);
+                    }
+                }
+
+            }else{
+                $data = array('status'=>'0', 'message'=>'Invalid Request!', 'user id'=>'');
                 $this->renderJSON($data);
-            }else{
-                $model->first_name = $fname;
-                $model->last_name = $lname;
-                $model->email = $email;
-                $model->nickname = $username;
-                $model->password = $password;
-                $model->country_id = $country_id;
-                $model->city = $city;
-                $model->birthday = $dob;
-                $model->gender = $gender;
-                $model->role_id = User::USER_USER;
-                $model->last_login_date = date('Y-m-d H:i:s');
-                $model->status = User::STATUS_INACTIVE;
-                $model->attachEventHandler('onAfterRegister', array(new RegisterActivity(), 'addActivity'));
-                $model->attachEventHandler('onAfterRegister', array('EmailNotificationManager', 'sendEmailRegisterUser'));
-
-                if($model->save()) {
-                    $data1 = User::model()->findByAttributes(array('email' => $model->email));
-                    $user_id1 = $data1->id;
-                    $status1 = $data1->status;
-
-                    $data = array('status'=>$status1, 'message'=>'Saved Successfully!', 'user id'=>$user_id1 );
-                    $this->renderJSON($data);
-                }else{
-                    $data = array('status'=>0, 'message'=>'Invalid Request!', 'user id'=>'' );
-                    $this->renderJSON($data);
-                }
             }
-
-        }elseif($type == "facebook"){
-
-            $result = $this->actionCheckEmailFb($facebook_id);
-
-            if($result == 1){
-
-                $results = $this->actionCheckEmails($email);
-                if($results == 1){
-                    $dataFb = User::model()->findByAttributes(array('email' => $email));
-                    $user_id = $dataFb->id;
-                    $status = $dataFb->status;
-
-                    $data = array('status'=> $status, 'message'=>'Facebook ID already exists!', 'user id'=>$user_id );
-                    $this->renderJSON($data);
-                }else{
-                    $data = array('status'=> 0, 'message'=>'Email does not exist!', 'user id'=>'' );
-                    $this->renderJSON($data);
-                }
-
-            }else{
-                $model->first_name = $fname;
-                $model->last_name = $lname;
-                $model->email = $email;
-                $model->nickname = $email;
-                $model->password = $password;
-
-                $model->facebook_id = $facebook_id;
-
-                $model->role_id = User::USER_USER;
-                $model->last_login_date = date('Y-m-d H:i:s');
-                $model->status = User::STATUS_INACTIVE;
-                $model->attachEventHandler('onAfterRegister', array(new RegisterActivity(), 'addActivity'));
-                $model->attachEventHandler('onAfterRegister', array('EmailNotificationManager', 'sendEmailRegisterUser'));
-
-                if( $model->save() ) {
-                    $data1 = User::model()->findByAttributes(array('email' => $model->email));
-                    $user_id1 = $data1->id;
-                    $status1 = $data1->status;
-
-                    $data = array('status'=>$status1, 'message'=>'Saved Successfully!', 'user id'=>$user_id1 );
-                    $this->renderJSON($data);
-                }else{
-                    $data = array('status'=>0, 'message'=>'Invalid Requests!', 'user id'=>'' );
-                    $this->renderJSON($data);
-                }
-            }
-
-        }else{
-            $data = array('status'=>'0', 'message'=>'Invalid Request!', 'user id'=>'');
-            $this->renderJSON($data);
-        }
 
     }
 
@@ -231,6 +230,60 @@ class ApiController extends Controller{
         $cmd=Yii::app()->db->createCommand($sql);
         $result= $cmd -> queryScalar();
         return $result;
+    }
+
+
+    // Forget Password: ///
+    public  function actionForgotPassword($email){
+
+        if($email){
+            $result = $this->actionCheckEmail($email);
+            if($result == 1){
+                $model = new User();
+                $post = array('email'=>$email);
+                $model = User::model()->findByAttributes(array('email'=>$email));
+                $model->attributes = $post;
+
+                $password = $this->actionGeneratedPassword();
+
+                if($model->validate()) {
+
+                    $model->password = CPasswordHelper::hashPassword($password);
+
+                    if($model->save()){
+                        $headers="From: no-reply@fitbody.com\r\nReply-To: info@fitbody.com";
+                        mail($email, "Password Changed | FitBody", "New Password is $password", $headers);
+                        $data = array('password'=>$password, 'message'=>'Email Sent!');
+                        $this->renderJSON($data);
+
+                    }else{
+                        $data = array('message'=>'Password is not changed!');
+                        $this->renderJSON($data);
+                    }
+
+                }else{
+                    $data = array('message'=>'Invalid Request!');
+                    $this->renderJSON($data);
+                }
+            }else{
+                $data = array('message'=>'Email address does not exist!');
+                $this->renderJSON($data);
+            }
+        }else{
+            $data = array('message'=>'Missing Argument!');
+            $this->renderJSON($data);
+        }
+
+    }
+
+
+    private function actionGeneratedPassword()
+    {
+        $length = 6;
+        $chars = array_merge(range(0,9), range('a','z'), range('A','Z'));
+        shuffle($chars);
+        $password = implode(array_slice($chars, 0, $length));
+        return $password;
     }
 
 
